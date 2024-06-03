@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Jugadores{% endblock %}
+
+{% block content %}
+<h2>Lista de Jugadores</h2>
+<div class="row">
+    {% for jugador in jugadores %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ jugador.nombre }}</h5>
+                <p class="card-text">{{ jugador.descripcion|slice:":100" }}</p>
+                <a href="{% url 'jugador_detail' jugador.pk %}" class="btn btn-primary">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
